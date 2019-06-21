@@ -57,7 +57,7 @@ class RegistrerForm(forms.ModelForm):
     """
     participaciones = forms.ModelChoiceField(label='Interesado en participar como: ', queryset=Tipo_participacion.objects.all(), initial=0)
 
-    mensaje = forms.CharField(required=True, label='',
+    mensaje = forms.CharField(required=False, label='',
                               widget=forms.TextInput(
                                   attrs={
                                       "placeholder": "Escriba algun mensaje o pregunta",

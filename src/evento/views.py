@@ -17,3 +17,10 @@ def index(request):
     }
 
     return render(request, 'evento/index.html', context)
+
+def registrados(request):
+    registrados = Usuario.objects.order_by('-horaRegistro')
+    context = {
+        'usuarios': registrados,
+    }
+    return render(request, 'evento/tabulado.html', context)
