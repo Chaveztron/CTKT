@@ -1,9 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import get_template
+
 from .forms import *
 from django.contrib import messages
 from openpyxl import Workbook
 from django.http.response import HttpResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
+
+from .utils import render_to_pdf #created in step 4
+
 # Create your views here.
 def index(request):
     form = RegistrerForm(request.POST)
@@ -74,4 +79,29 @@ class ReporteUsuarioExcel(TemplateView):
         wb.save(response)
         return response
 
-
+def GeneratePdf(request, id):
+    usuario = get_object_or_404(Usuario, id=id)
+    template = get_template('pdf/invoice.html')
+    context = {
+        "nombre": usuario.nombre,
+        "puesto": usuario.puesto,
+        "empresa": usuario.empresa,
+        "email": usuario.email,
+        "telefono": usuario.telefono,
+        "participacion": usuario.participaciones.tipo_parti,
+        "mensaje": usuario.mensaje,
+        "hora": usuario.horaRegistro,
+    }
+    html = template.render(context)
+    pdf = render_to_pdf('pdf/invoice.html', context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Invoice_%s.pdf" % ("12341231")
+        content = "inline; filename='%s'" % (filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" % (filename)
+        response['Content-Disposition'] = content
+        #http://localhost:8000/pase/1/?download=true
+        return response
+    return HttpResponse("Not found")

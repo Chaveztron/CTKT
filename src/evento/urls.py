@@ -7,5 +7,6 @@ urlpatterns = [
 
     path('reporte_excel/', ReporteUsuarioExcel.as_view(), name='list_users'),
 
+    path('pase/<id>/', GeneratePdf,),
 
 ]
