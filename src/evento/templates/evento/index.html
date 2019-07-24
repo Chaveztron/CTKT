@@ -59,17 +59,24 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="#">Contacto</a></li>
-                                    <li><a href="#">Expositores</a></li>
-                                    <li><a href="#">Conferencia</a></li>
+                                    <li><a href="{% url 'index' %}">Inicio</a></li>
+                                    <li><a href=".contacto" class="link-scroll">Contacto</a></li>
+                                    <script>
+                                        $('.link-scroll').bind('click', function (e) {
+                                            var anchor = $(this);
+                                            $('html, body').stop().animate({
+                                                scrollTop: $(anchor.attr('href')).offset().top + 2
+                                            }, 700);
+                                            e.preventDefault();
+                                        });
+                                    </script>
+                                    <li><a href="{% url 'prog' %}">Programa</a></li>
                                 </ul>
 
                                 <!-- Top Social Info -->
                                 <div class="top-social-info ml-5">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.facebook.com/Canacintra-Tecate-151711674847816/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/canacintra.tecate/"><i class="fa fa-instagram"></i></a>
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -114,7 +121,7 @@
             <!-- Single Slide -->
             <div class="single-slide">
                 <!-- Background Image-->
-                <div class="slide-bg-img bg-img" style="background-image: url({% static 'evento/img/bg-img/2.jpg' %});"></div>
+                <div class="slide-bg-img bg-img" style="background-image: url({% static 'evento/img/bg-img/2.png' %});"></div>
                 <!-- Welcome Text -->
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
@@ -208,7 +215,7 @@
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/5.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Branding Identity</h4>
+                        <h4>Visualizar</h4>
                     </div>
                 </div>
             </div>
@@ -219,7 +226,7 @@
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/5.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Branding Identity</h4>
+                        <h4>Visualizar</h4>
                     </div>
                 </div>
             </div>
@@ -230,7 +237,7 @@
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/5.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Branding Identity</h4>
+                        <h4>Visualizar</h4>
                     </div>
                 </div>
             </div>
@@ -308,15 +315,20 @@
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
                                 <h5 class="widget-title">Dirección</h5>
-                                <p>1530 Doverfield Ave <br> Hacienda Heights, California(CA), 91745</p>
+                                <p>CALLE SAN FCO EUSEBIO KINO, Misión de Mulegé S/N, <br>
+                                    El Descanso, 21478 Tecate, Baja California
+
+</p>
                             </div>
                         </div>
 
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title">Contacto</h5>
-                                <p><i class="fa fa-phone"></i> <br> +01 251 332 331</p>
+                                <h5 class="widget-title contacto" id="contact">Contacto</h5>
+                                <p><i class="fa fa-phone"></i> <br> (665) 665-07-56</p>
+                                <p><i class="fa fa-phone"></i> <br> (665) 665-07-57</p>
+                                <p><i class="fa fa-phone"></i> <br> (665) 665-07-58</p>
                             </div>
                         </div>
 
@@ -325,9 +337,9 @@
                             <div class="single-footer-widget mb-100">
                                 <h5 class="widget-title">Social</h5>
                                 <div class="footer-social-info">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.facebook.com/Canacintra-Tecate-151711674847816/"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/canacintra.tecate/"><i class="fa fa-instagram"></i></a>
+
                                 </div>
                             </div>
                         </div>
@@ -352,10 +364,7 @@ Este template esta editado <i class="fa fa-heart-o" aria-hidden="true"> </i> por
                     <div class="col-12 col-md-6">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Contacto</a></li>
-                                <li><a href="#">Expositores</a></li>
-                                <li><a href="#">Conferencia</a></li>
+                                <li><a href="{% url 'login' %}">Iniciar Sesion</a></li>
                             </ul>
                         </nav>
                     </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.template.loader import get_template
 
 from .forms import *
@@ -9,6 +9,16 @@ from django.views.generic import TemplateView, View
 
 from .utils import render_to_pdf #created in step 4
 
+from django.core.mail import send_mail
+
+from django.contrib.auth.decorators import login_required
+
+def login(request):
+    return render(request, 'evento/login.html')
+
+def programa(request):
+    return render(request, 'evento/programa.html')
+
 # Create your views here.
 def index(request):
     form = RegistrerForm(request.POST)
@@ -16,7 +26,10 @@ def index(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Registro exitoso')
-            return redirect('/')
+            return redirect(reverse("registrado", kwargs={
+                'id': form.instance.id,
+                'nombre': form.instance.nombre
+            }))
     else:
         form = RegistrerForm()
     context = {
@@ -24,6 +37,36 @@ def index(request):
     }
     return render(request, 'evento/index.html', context)
 
+def satisfatorio(request, id, nombre):
+    #user = get_object_or_404(Usuario, id=id)
+    user = Usuario.objects.get(id = id, nombre = nombre)
+    nombreUser = user.nombre
+    nombreUser = nombreUser.replace(" ", "%20")
+    link = "http://192.168.0.11:8000/pase/" + str(user.id) + "/" + nombreUser + "/" ## cambiar dominio
+
+    send_mail('Hola desde EXPO INDUSTRIA TECATE',
+              'Usted a generado un boleto de entrada,'
+              'puede descargarlo desde aqui ' + link,#########
+              'kyworkred@gmail.com',
+              [user.email],
+              fail_silently=False)
+    context = {
+        "id": user.id,
+        "nombre": user.nombre,
+    }
+    return render(request, 'evento/satisfactorio.html', context)
+
+@login_required
+def verificar(request, id, nombre):
+    user = Usuario.objects.get(id=id, nombre=nombre)
+    user.asistencia = True
+    user.save()
+    context = {
+        "nombre": user.nombre,
+    }
+    return render(request, 'evento/vericado.html', context)
+
+@login_required
 def registrados(request):
     registrados = Usuario.objects.order_by('-horaRegistro')
     context = {
@@ -50,6 +93,7 @@ class ReporteUsuarioExcel(TemplateView):
         ws['H3'] = 'Participacion'
         ws['I3'] = 'Mensajes'
         ws['J3'] = 'Hora de registro'
+        ws['K3'] = 'Asistencia'
 
         cont = 4
 
@@ -70,6 +114,7 @@ class ReporteUsuarioExcel(TemplateView):
             ws.cell(row = cont, column = 8).value = usuario.participaciones.tipo_parti
             ws.cell(row = cont, column = 9).value = usuario.mensaje
             ws.cell(row = cont, column = 10).value = usuario.horaRegistro
+            ws.cell(row = cont, column = 11).value = usuario.asistencia
             cont+=1
 
         nombre_archivo = "ReporteUsuariosRegistrados.xlsx"
@@ -79,8 +124,12 @@ class ReporteUsuarioExcel(TemplateView):
         wb.save(response)
         return response
 
-def GeneratePdf(request, id):
-    usuario = get_object_or_404(Usuario, id=id)
+def GeneratePdf(request,id, nombre):
+    #usuario = get_object_or_404(Usuario, nombre=nombre)
+    usuario = Usuario.objects.get(id = id, nombre = nombre)
+    nombreUser = usuario.nombre
+    nombreUser = nombreUser.replace(" ","%20")
+    link = "http://192.168.0.11:8000/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
     template = get_template('pdf/invoice.html')
     context = {
         "nombre": usuario.nombre,
@@ -91,6 +140,7 @@ def GeneratePdf(request, id):
         "participacion": usuario.participaciones.tipo_parti,
         "mensaje": usuario.mensaje,
         "hora": usuario.horaRegistro,
+        "link": link,
     }
     html = template.render(context)
     pdf = render_to_pdf('pdf/invoice.html', context)

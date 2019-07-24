@@ -79,6 +79,10 @@ $(document).ready(function(){
     <h3>Actualmente estos son los usuarios registrados para el evento</h3>
     <hr>
     <p>De click en <strong>"filter"</strong> para buscar por columna</p>
+    <a href="{% url 'list_users' %}">Exportar a excel</a>
+    {% if user.is_authenticated %}
+     <a href="{% url 'logout' %}">Cerrar Sesion</a>
+    {% endif %}
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
@@ -98,11 +102,18 @@ $(document).ready(function(){
                         <th><input type="text" class="form-control" placeholder="Telefono" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Intereses" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Participacion" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Registro" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Asistencia" disabled></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for user in usuarios %}
-                    <tr>
+                    {% if user.asistencia == True %}
+                    <tr style="background: aquamarine">
+                        {% else %}
+                        <tr style="background: #efa2a9">
+                        {% endif %}
+
                         <td>{{ user.id }}</td>
                         <td>{{ user.nombre }}</td>
                         <td>{{ user.puesto }}</td>
@@ -118,6 +129,7 @@ $(document).ready(function(){
                         </td>
                         <td>{{ user.participaciones }}</td>
                         <td>{{ user.horaRegistro }}</td>
+                        <td>{{ user.asistencia }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

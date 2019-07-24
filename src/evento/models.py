@@ -21,7 +21,11 @@ class Usuario(models.Model):
     participaciones = models.ForeignKey(Tipo_participacion, on_delete=models.CASCADE)
     mensaje = models.CharField(max_length=60, blank=True)
     horaRegistro = models.DateTimeField(default=timezone.now)
+    asistencia = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre
 
+class Publicaciones(models.Model):
+    nombre_expositor = models.CharField(max_length=100)
+    
