@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from PIL import Image
 
 class Interes(models.Model):
     interes = models.CharField(max_length=100)
@@ -28,4 +29,4 @@ class Usuario(models.Model):
 
 class Publicaciones(models.Model):
     nombre_expositor = models.CharField(max_length=100)
-    
+

@@ -13,6 +13,9 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.decorators import login_required
 
+def comming(request):
+    return render(request, 'evento/index2.html')
+
 def login(request):
     return render(request, 'evento/login.html')
 
@@ -42,7 +45,7 @@ def satisfatorio(request, id, nombre):
     user = Usuario.objects.get(id = id, nombre = nombre)
     nombreUser = user.nombre
     nombreUser = nombreUser.replace(" ", "%20")
-    link = "http://192.168.0.11:8000/pase/" + str(user.id) + "/" + nombreUser + "/" ## cambiar dominio
+    link = "http://192.168.1.92:8000/pase/" + str(user.id) + "/" + nombreUser + "/" ## cambiar dominio
 
     send_mail('Hola desde EXPO INDUSTRIA TECATE',
               'Usted a generado un boleto de entrada,'
@@ -61,10 +64,45 @@ def verificar(request, id, nombre):
     user = Usuario.objects.get(id=id, nombre=nombre)
     user.asistencia = True
     user.save()
+    usuario = Usuario.objects.get(id=id, nombre=nombre)
+    nombreUser = usuario.nombre
+    nombreUser = nombreUser.replace(" ", "%20")
+    link = "BEGIN:VCARD/n" \
+           "VERSION:3.0/n" \
+           "N:Caesar Augustus;Galus Julius;/n" \
+           "FN:Galus Julius Caesar Augustus/n" \
+           "TITLE:CEO/Emperor/n" \
+           "TEL;TYPE=WORK;VOICE:+555 946017/n" \
+           "TEL;TYPE=WORK;CELL:+555 678658/n" \
+           "EMAIL;TYPE=WORK:caesar.rules@gmail.es/n" \
+           "ADR;TYPE=INTL,POSTAL,WORK:;;Velitrae Ox Head avenue,1;Rome;Augusta;14567;Italy/n" \
+           "URL;TYPE=WORK:http://www.thosewhoareabouttodiesaluteyou.com/n" \
+           "END:VCARD"
+    template = get_template('pdf/invoice.html')
     context = {
-        "nombre": user.nombre,
+        "nombre": usuario.nombre,
+        "puesto": usuario.puesto,
+        "empresa": usuario.empresa,
+        "email": usuario.email,
+        "telefono": usuario.telefono,
+        "participacion": usuario.participaciones.tipo_parti,
+        "mensaje": usuario.mensaje,
+        "hora": usuario.horaRegistro,
+        "link": link,
     }
-    return render(request, 'evento/vericado.html', context)
+    html = template.render(context)
+    pdf = render_to_pdf('pdf/sticker.html', context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Invoice_%s.pdf" % ("12341231")
+        content = "inline; filename='%s'" % (filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" % (filename)
+        response['Content-Disposition'] = content
+        # http://localhost:8000/pase/1/?download=true
+        return response
+    return HttpResponse("Not found")
 
 @login_required
 def registrados(request):
@@ -129,7 +167,7 @@ def GeneratePdf(request,id, nombre):
     usuario = Usuario.objects.get(id = id, nombre = nombre)
     nombreUser = usuario.nombre
     nombreUser = nombreUser.replace(" ","%20")
-    link = "http://192.168.0.11:8000/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
+    link = "http://192.168.1.92:8000/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
     template = get_template('pdf/invoice.html')
     context = {
         "nombre": usuario.nombre,
