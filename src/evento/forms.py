@@ -11,6 +11,20 @@ class RegistrerForm(forms.ModelForm):
                                     'class' :"form-control wow fadeInUp",
                                     'data-wow-delay' :"100ms"
                                 }))
+    appellidoP = forms.CharField(required=True, label='',
+                             widget=forms.TextInput(
+                                 attrs={
+                                     "placeholder": "Apellido paterno",
+                                     'class': "form-control wow fadeInUp",
+                                     'data-wow-delay': "100ms"
+                                 }))
+    appellidoM = forms.CharField(required=True, label='',
+                             widget=forms.TextInput(
+                                 attrs={
+                                     "placeholder": "Apellido materno",
+                                     'class': "form-control wow fadeInUp",
+                                     'data-wow-delay': "100ms"
+                                 }))
     puesto = forms.CharField(required=True, label='',
                              widget=forms.TextInput(
                                  attrs={
@@ -57,17 +71,8 @@ class RegistrerForm(forms.ModelForm):
     """
     participaciones = forms.ModelChoiceField(label='Interesado en participar como: ', queryset=Tipo_participacion.objects.all(), initial=0)
 
-    mensaje = forms.CharField(required=False, label='',
-                              widget=forms.TextInput(
-                                  attrs={
-                                      "placeholder": "Escriba algun mensaje o pregunta",
-                                      'class': "form-control wow fadeInUp",
-                                      'data-wow-delay': "100ms"
-                                  }))
-
 
 
     class Meta:
         model = Usuario
-        fields = ('nombre', 'puesto', 'empresa', 'email',
-                  'telefono','intereses','participaciones','mensaje',)
+        fields = ('nombre','appellidoP','appellidoM', 'puesto', 'empresa', 'telefono','intereses','participaciones', 'email',)

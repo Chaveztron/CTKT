@@ -67,26 +67,25 @@ def verificar(request, id, nombre):
     usuario = Usuario.objects.get(id=id, nombre=nombre)
     nombreUser = usuario.nombre
     nombreUser = nombreUser.replace(" ", "%20")
-    link = "BEGIN:VCARD/n" \
-           "VERSION:3.0/n" \
-           "N:Caesar Augustus;Galus Julius;/n" \
-           "FN:Galus Julius Caesar Augustus/n" \
-           "TITLE:CEO/Emperor/n" \
-           "TEL;TYPE=WORK;VOICE:+555 946017/n" \
-           "TEL;TYPE=WORK;CELL:+555 678658/n" \
-           "EMAIL;TYPE=WORK:caesar.rules@gmail.es/n" \
-           "ADR;TYPE=INTL,POSTAL,WORK:;;Velitrae Ox Head avenue,1;Rome;Augusta;14567;Italy/n" \
-           "URL;TYPE=WORK:http://www.thosewhoareabouttodiesaluteyou.com/n" \
-           "END:VCARD"
+    link = "BEGIN:VCARD\n" \
+           "VERSION:3.0\n" \
+           "N:"+str(usuario.nombre)+";"+str(usuario.appellidoP)+" "+str(usuario.appellidoM)+";;Mr.;\n" \
+           "FN:"+str(usuario.nombre)+" "+str(usuario.appellidoP)+" "+str(usuario.appellidoM)+"\n" \
+           "ORG:"+str(usuario.empresa)+".\n" \
+           "TITLE:"+str(usuario.puesto)+"\n" \
+            "TEL;TYPE=WORK,VOICE:" + str(usuario.telefono) + "\n" \
+            "EMAIL:"+str(usuario.email)+"\n" \
+           "END:VCARD\n"
     template = get_template('pdf/invoice.html')
     context = {
-        "nombre": usuario.nombre,
+        "nombre": usuario.nombre.upper(),
+        "apellidoP": usuario.appellidoP.upper(),
+        'apellidoM': usuario.appellidoM.upper(),
         "puesto": usuario.puesto,
-        "empresa": usuario.empresa,
+        "empresa": usuario.empresa.upper(),
         "email": usuario.email,
         "telefono": usuario.telefono,
         "participacion": usuario.participaciones.tipo_parti,
-        "mensaje": usuario.mensaje,
         "hora": usuario.horaRegistro,
         "link": link,
     }
@@ -169,14 +168,14 @@ def GeneratePdf(request,id, nombre):
     nombreUser = nombreUser.replace(" ","%20")
     link = "http://192.168.1.92:8000/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
     template = get_template('pdf/invoice.html')
+    name = str(usuario.nombre)+" "+str(usuario.appellidoP)+" "+str(usuario.appellidoM)
     context = {
-        "nombre": usuario.nombre,
+        "nombre": name,
         "puesto": usuario.puesto,
         "empresa": usuario.empresa,
         "email": usuario.email,
         "telefono": usuario.telefono,
         "participacion": usuario.participaciones.tipo_parti,
-        "mensaje": usuario.mensaje,
         "hora": usuario.horaRegistro,
         "link": link,
     }
