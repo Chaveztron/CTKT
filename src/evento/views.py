@@ -42,10 +42,11 @@ def index(request):
 
 def satisfatorio(request, id, nombre):
     #user = get_object_or_404(Usuario, id=id)
+    dominio = str(dns.objects.first())
     user = Usuario.objects.get(id = id, nombre = nombre)
     nombreUser = user.nombre
     nombreUser = nombreUser.replace(" ", "%20")
-    link = "http://192.168.1.92:8000/pase/" + str(user.id) + "/" + nombreUser + "/" ## cambiar dominio
+    link = "http://"+dominio+"/pase/" + str(user.id) + "/" + nombreUser + "/" ## cambiar dominio
 
     send_mail('Hola desde EXPO INDUSTRIA TECATE',
               'Usted a generado un boleto de entrada,'
@@ -163,10 +164,11 @@ class ReporteUsuarioExcel(TemplateView):
 
 def GeneratePdf(request,id, nombre):
     #usuario = get_object_or_404(Usuario, nombre=nombre)
+    dominio = str(dns.objects.first())
     usuario = Usuario.objects.get(id = id, nombre = nombre)
     nombreUser = usuario.nombre
     nombreUser = nombreUser.replace(" ","%20")
-    link = "http://192.168.1.92:8000/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
+    link = "http://"+dominio+"/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
     template = get_template('pdf/invoice.html')
     name = str(usuario.nombre)+" "+str(usuario.appellidoP)+" "+str(usuario.appellidoM)
     context = {

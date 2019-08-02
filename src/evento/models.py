@@ -31,3 +31,8 @@ class Usuario(models.Model):
 class Publicaciones(models.Model):
     nombre_expositor = models.CharField(max_length=100)
 
+class dns(models.Model):
+    sitio = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.sitio
