@@ -20,7 +20,15 @@ def login(request):
     return render(request, 'evento/login.html')
 
 def programa(request):
-    return render(request, 'evento/programa.html')
+    exposiciones = Publicaciones.objects.all()
+    autores_relevantes = AutoresRelevantes.objects.all()
+    texto_adicional = TextoAdicional.objects.all()
+    context = {
+        'Exposiciones': exposiciones,
+        'Autores': autores_relevantes,
+        'Texto': texto_adicional,
+    }
+    return render(request, 'evento/programa.html', context)
 
 # Create your views here.
 def index(request):
@@ -129,15 +137,14 @@ class ReporteUsuarioExcel(TemplateView):
         ws['F3'] = 'Telefonos'
         ws['G3'] = 'Intereses'
         ws['H3'] = 'Participacion'
-        ws['I3'] = 'Mensajes'
-        ws['J3'] = 'Hora de registro'
-        ws['K3'] = 'Asistencia'
+        ws['I3'] = 'Hora de registro'
+        ws['J3'] = 'Asistencia'
 
         cont = 4
 
         for usuario in usuarios:
             ws.cell(row = cont, column = 1).value = usuario.id
-            ws.cell(row = cont, column = 2).value = usuario.nombre
+            ws.cell(row = cont, column = 2).value = str(usuario.nombre)+" "+ str(usuario.appellidoP)+" "+ str(usuario.appellidoM)
             ws.cell(row = cont, column = 3).value = usuario.puesto
             ws.cell(row = cont, column = 4).value = usuario.empresa
             ws.cell(row = cont, column = 5).value = usuario.email
@@ -150,9 +157,8 @@ class ReporteUsuarioExcel(TemplateView):
             ws.cell(row = cont, column = 7).value = intereses
 
             ws.cell(row = cont, column = 8).value = usuario.participaciones.tipo_parti
-            ws.cell(row = cont, column = 9).value = usuario.mensaje
-            ws.cell(row = cont, column = 10).value = usuario.horaRegistro
-            ws.cell(row = cont, column = 11).value = usuario.asistencia
+            ws.cell(row = cont, column = 9).value = usuario.horaRegistro
+            ws.cell(row = cont, column = 10).value = usuario.asistencia
             cont+=1
 
         nombre_archivo = "ReporteUsuariosRegistrados.xlsx"

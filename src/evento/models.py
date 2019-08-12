@@ -30,6 +30,24 @@ class Usuario(models.Model):
 
 class Publicaciones(models.Model):
     nombre_expositor = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='logos')
+    titulo_exposicion = models.CharField(max_length=100)
+    resumen = models.CharField(max_length=900)
+
+    def __str__(self):
+        return self.titulo_exposicion
+
+class AutoresRelevantes(models.Model):
+    nombre_expositor = models.CharField(max_length=100)
+    fotografia = models.ImageField(upload_to='autores')
+    def __str__(self):
+        return self.nombre_expositor
+
+class TextoAdicional(models.Model):
+    titulo = models.CharField(max_length=100)
+    texto = models.CharField(max_length=100)
+    def __str__(self):
+        return self.titulo
 
 class dns(models.Model):
     sitio = models.CharField(max_length=1000)

@@ -102,17 +102,15 @@
     <!-- ##### Services Catagory Area Start ##### -->
     <div class="services-catagory-area d-flex flex-wrap">
         <!-- Single Service Catagory -->
-        <div class="single-service-cata bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({% static 'evento/img/bg-img/19.jpg' %});">
-            <a href="#">VR / AR</a>
+
+        {% for autor in Autores %}
+        <div class="single-service-cata bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({{ autor.fotografia.url }});">
+            <a href="#">{{ autor.nombre_expositor }}</a>
         </div>
-        <!-- Single Service Catagory -->
-        <div class="single-service-cata bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({% static 'evento/img/bg-img/20.jpg' %});">
-            <a href="#">Artificial <br> Inteligence</a>
-        </div>
-        <!-- Single Service Catagory -->
-        <div class="single-service-cata bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({% static 'evento/img/bg-img/21.jpg' %});">
-            <a href="#">User <br> Experience</a>
-        </div>
+
+        {% endfor %}
+
+
     </div>
     <!-- ##### Services Catagory Area End ##### -->
 
@@ -120,27 +118,20 @@
     <section class="services-block-area section-padding-100-0">
         <div class="container">
             <div class="row">
-                <!-- Single Service Block -->
+                <!-- Lo mas relevante -->
+               {% for tex in Texto %}
+
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-service-block mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <h4>vision</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit, elit pulvinar interdum dapibus, est dui convallis orci, vel gravida erat ante in sapien.</p>
+                        <h4>{{ tex.titulo }}</h4>
+                        <p>{{ tex.texto }}</p>
                     </div>
                 </div>
                 <!-- Single Service Block -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <h4>future</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit, elit pulvinar interdum dapibus, est dui convallis orci, vel gravida erat ante in sapien.</p>
-                    </div>
-                </div>
-                <!-- Single Service Block -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-service-block mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <h4>intelligence</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit, elit pulvinar interdum dapibus, est dui convallis orci, vel gravida erat ante in sapien.</p>
-                    </div>
-                </div>
+                {% endfor %}
+
+
+                <!-- Lo mas relevante -->
             </div>
         </div>
     </section>
@@ -152,84 +143,20 @@
     <section class="pixel-service-area">
         <div class="container">
             <div class="row">
-                <!-- Single Service Area -->
+                <!-- Exposiciones                   -->
+
+                {% for exp in Exposiciones %}
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="{% static 'evento/img/core-img/cursor.png' %}" alt="">
-                        <h5>Light Weight &amp; Fast</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
+                        <img src="{{ exp.logo.url }}" alt="">
+                        <h5>{{ exp.titulo_exposicion }}</h5>
+                        <p>{{ exp.resumen }}</p>
+                        <a href="#" class="btn">{{ exp.nombre_expositor }}</a>
                     </div>
                 </div>
 
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="200ms">
-                        <img src="{% static 'evento/img/core-img/monitor.png' %}" alt="">
-                        <h5>Responsive &amp; Retina Ready</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <img src="{% static 'evento/img/core-img/presentation.png' %}" alt="">
-                        <h5>Documentation</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="400ms">
-                        <img src="{% static 'evento/img/core-img/settings.png' %}" alt="">
-                        <h5>Customizable</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="{% static 'evento/img/core-img/cursor.png' %}" alt="">
-                        <h5>Light Weight &amp; Fast</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="200ms">
-                        <img src="{% static 'evento/img/core-img/monitor.png' %}" alt="">
-                        <h5>Responsive &amp; Retina Ready</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <img src="{% static 'evento/img/core-img/presentation.png' %}" alt="">
-                        <h5>Documentation</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="400ms">
-                        <img src="{% static 'evento/img/core-img/settings.png' %}" alt="">
-                        <h5>Customizable</h5>
-                        <p>Morbi tempus lobortis nunc non commodo. Pellentesque habitant morbi tristique senectus et netus et.</p>
-                        <a href="#" class="btn">More Info</a>
-                    </div>
-                </div>
+                {% endfor %}
+                <!-- Exposiciones                   -->
             </div>
         </div>
     </section>

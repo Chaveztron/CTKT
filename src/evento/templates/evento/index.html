@@ -41,7 +41,7 @@
                     <nav class="classy-navbar justify-content-between" id="pixelNav">
 
                         <!-- Nav brand -->
-                        <a href="" class="nav-brand"><img src="{% static 'evento/img/core-img/logo.png' %}" alt=""></a>
+                        <a href="" class="nav-brand"><img src="{% static 'evento/img/core-img/logo.png' %}" height="100" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -150,34 +150,94 @@
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Top Catagory Area Start ##### -->
-    <div class="top-catagory-area d-flex flex-wrap">
-        <!-- Single Catagory -->
-        <div class="single-catagory bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({% static 'evento/img/bg-img/3.jpg' %});">
-            <a href=".intro" class="link-scroll">Comprador?</a>
-            <script>
-                $('.link-scroll').bind('click', function (e) {
-                    var anchor = $(this);
-                    $('html, body').stop().animate({
-                        scrollTop: $(anchor.attr('href')).offset().top + 2
-                    }, 700);
-                    e.preventDefault();
-                });
-            </script>
-        </div>
-        <!-- Single Catagory -->
-        <div class="single-catagory bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({% static 'evento/img/bg-img/4.jpg' %});">
-            <a href=".intro" class="link-scroll">Proveedor?</a>
-            <script>
-                $('.link-scroll').bind('click', function (e) {
-                    var anchor = $(this);
-                    $('html, body').stop().animate({
-                        scrollTop: $(anchor.attr('href')).offset().top + 2
-                    }, 700);
-                    e.preventDefault();
-                });
-            </script>
-        </div>
+    <div class="pixel-portfolio-area">
+        <style>
+            #countdown, #title{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 35px;
+                letter-spacing: -0.8px;
+                word-spacing: 0px;
+                color: white;
+                font-weight: normal;
+                text-decoration: none;
+                font-style: normal;
+                font-variant: normal;
+                text-transform: none;
+                background: -webkit-linear-gradient(to left, #292E49, #789ba8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            }
+        </style>
+        <div id="title" align="center" >Dentro de...</div>
+        <div id="countdown" align="center"></div>
+        <script>
+        var end = new Date('11/07/2019 10:00 AM');
+
+            var _second = 1000;
+            var _minute = _second * 60;
+            var _hour = _minute * 60;
+            var _day = _hour * 24;
+            var timer;
+
+            function showRemaining() {
+                var now = new Date();
+                var distance = end - now;
+                if (distance < 0) {
+
+                    clearInterval(timer);
+                    document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+                    return;
+                }
+                var days = Math.floor(distance / _day);
+                var hours = Math.floor((distance % _day) / _hour);
+                var minutes = Math.floor((distance % _hour) / _minute);
+                var seconds = Math.floor((distance % _minute) / _second);
+
+                document.getElementById('countdown').innerHTML = days + ' dias, ';
+                document.getElementById('countdown').innerHTML += hours + ' horas, ';
+                document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
+                document.getElementById('countdown').innerHTML += seconds + ' segundos';
+            }
+
+            timer = setInterval(showRemaining, 1000);
+        </script>
     </div>
+
+
+     <div class="pixel-portfolio-area" align="center">
+         <style>
+             @media (min-width: 992px) {
+    .youtubevid {
+        width: 960px;
+        height: 540px; /* 720px */
+    }
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+    .youtubevid {
+        width: 640px;
+        height: 360px; /* 480px */
+    }
+}
+
+@media (min-width: 481px) and (max-width: 766px) {
+    .youtubevid {
+        width: 480px;
+        height: 270px; /* 320px */
+    }
+}
+
+@media (max-width: 480px) {
+    .youtubevid {
+        width: 300px;
+        height: 169px; /* 225px */
+    }
+}
+         </style>
+         <iframe class="youtubevid" width="1120" height="630" src="https://www.youtube.com/embed/Zkn4T2H9z4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+     </div>
     <!-- ##### Top Catagory Area End ##### -->
 
     <!-- ##### Newsletter Area Start ###### -->
@@ -190,8 +250,8 @@
                 <div class="col-12">
                     <!-- Section Heading -->
                     <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
-                        <h2>EXPO INDUSTRIA TECATE</h2>
-                        <img src="{% static 'evento/img/core-img/x.png' %}" alt="">
+                        <h2></h2>
+                        <img src="{% static 'evento/img/core-img/logo.png' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -200,10 +260,12 @@
         <!-- Portfolio Menu -->
         <div class="pixel-projects-menu wow fadeInUp" data-wow-delay="200ms">
             <div class="text-center portfolio-menu">
-                <button class="btn active" data-filter="*">All Projects</button>
+                <button class="btn active" data-filter="*">Patrocinadores</button>
+                <!-- Opciones adicionales
                 <button class="btn" data-filter=".visual">Visual</button>
                 <button class="btn" data-filter=".add">Advertising</button>
                 <button class="btn" data-filter=".web">Web Development</button>
+                -->
             </div>
         </div>
 
@@ -225,7 +287,7 @@
                 <img src="{% static 'evento/img/bg-img/6.jpg' %}" alt="">
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
-                        <a href="{% static 'evento/img/bg-img/5.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a href="{% static 'evento/img/bg-img/6.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
                         <h4>Visualizar</h4>
                     </div>
                 </div>
@@ -236,7 +298,7 @@
                 <img src="{% static 'evento/img/bg-img/7.jpg' %}" alt="">
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
-                        <a href="{% static 'evento/img/bg-img/5.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a href="{% static 'evento/img/bg-img/6.jpg' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
                         <h4>Visualizar</h4>
                     </div>
                 </div>
@@ -254,7 +316,7 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
                         <h2>Registra hoy tu pase de entrada</h2>
-                        <img src="{% static 'evento/img/core-img/x.png' %}" alt="">
+                        <img src="{% static 'evento/img/core-img/x.png' %}" width="100" alt="">
                     </div>
                 </div>
             </div>
@@ -304,7 +366,7 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="single-footer-widget mb-100">
                         <!-- Footer Logo -->
-                        <a href="" class="footer-logo"><img src="{% static 'evento/img/core-img/logo.png' %}" alt=""></a>
+                        <a href="" class="footer-logo"><img src="{% static 'evento/img/core-img/logo.png' %}" height="100" alt=""></a>
                     </div>
                 </div>
 
