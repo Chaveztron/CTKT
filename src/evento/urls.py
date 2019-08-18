@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
+    
     path('', comming, name='index2'),
     path('root_jesus/', index, name='index'),
     path('seguimiento/', programa, name='prog'),
@@ -13,5 +14,7 @@ urlpatterns = [
     path('reporte_excel/', ReporteUsuarioExcel.as_view(), name='list_users'),
 
     path('pase/<id>/<nombre>/', GeneratePdf,),
+
+    path('saludos/', HomeView.as_view()),
 
 ]

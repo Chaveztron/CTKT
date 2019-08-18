@@ -13,6 +13,13 @@ from django.core.mail import send_mail
 
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic import TemplateView
+
+from .models import *
+
+class HomeView(TemplateView):
+    template_name = "home.html"
+
 def comming(request):
     return render(request, 'evento/index2.html')
 
@@ -73,6 +80,10 @@ def verificar(request, id, nombre):
     user = Usuario.objects.get(id=id, nombre=nombre)
     user.asistencia = True
     user.save()
+
+    persona = Saludo(persona=str(user.nombre))
+    persona.save()
+
     usuario = Usuario.objects.get(id=id, nombre=nombre)
     nombreUser = usuario.nombre
     nombreUser = nombreUser.replace(" ", "%20")

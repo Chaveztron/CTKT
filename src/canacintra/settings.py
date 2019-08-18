@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'qr_code',
     'crispy_forms',
+
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -73,9 +75,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'canacintra.wsgi.application'
 
+ASGI_APPLICATION = "canacintra.routing.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
+
 
 DATABASES = {
     'default': {
