@@ -55,6 +55,23 @@ def index(request):
     }
     return render(request, 'evento/index.html', context)
 
+def indexen(request):
+    formen = FormEn(request.POST)
+    if request.method == "POST":
+        if formen.is_valid():
+            formen.save()
+            messages.success(request, f'Registro exitoso')
+            return redirect(reverse("registrado", kwargs={
+                'id': formen.instance.id,
+                'nombre': formen.instance.nombre
+            }))
+    else:
+        formen = FormEn()
+    context = {
+        'form':formen
+    }
+    return render(request, 'evento/en.html', context)
+
 def satisfatorio(request, id, nombre):
     #user = get_object_or_404(Usuario, id=id)
     dominio = str(dns.objects.first())

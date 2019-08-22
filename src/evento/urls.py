@@ -5,6 +5,7 @@ urlpatterns = [
     
     path('', comming, name='index2'),
     path('root_jesus/', index, name='index'),
+    path('en/', indexen, name='englishp'),
     path('seguimiento/', programa, name='prog'),
     #path('log/', login, name='log'),
     path('registrado/<id>/<nombre>/', satisfatorio, name='registrado' ),

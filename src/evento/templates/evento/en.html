@@ -59,8 +59,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="{% url 'index' %}">Inicio</a></li>
-                                    <li><a href=".contacto" class="link-scroll">Contacto</a></li>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href=".contacto" class="link-scroll">Contact</a></li>
                                     <script>
                                         $('.link-scroll').bind('click', function (e) {
                                             var anchor = $(this);
@@ -70,12 +70,12 @@
                                             e.preventDefault();
                                         });
                                     </script>
-                                    <li><a href="{% url 'prog' %}">Programa</a></li>
+                                    <li><a href="{% url 'prog' %}">Exhibitors</a></li>
                                 </ul>
 
                                 <!-- Top Social Info -->
                                 <div class="top-social-info ml-5">
-                                    <a href="{% url 'englishp' %}"><img src="{% static 'evento/img/bg-img/inglish.png' %}" alt=""></a>
+                                    <a href="/root_jesus/"><img src="{% static 'evento/img/bg-img/mex.png' %}" alt=""></a>
                                     <a href="https://www.facebook.com/Canacintra-Tecate-151711674847816/"><i class="fa fa-facebook"></i></a>
                                     <a href="https://www.instagram.com/canacintra.tecate/"><i class="fa fa-instagram"></i></a>
 
@@ -103,9 +103,9 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-lg-9">
                             <div class="welcome-text">
-                                <h2 data-animation="fadeInUp" data-delay="300ms"><span><strong>Jueves <label style="color: red">07</label></strong></span><strong><br>de noviembre 2019</h2></strong>
-                                <h4 data-animation="fadeInUp" data-delay="500ms"><strong>A partir de las 10:00am: <span>Expo Industria Tecate </span></strong></h4>
-                                <a href=".intro" class="btn pixel-btn mt-50 continue link-scroll" data-animation="fadeInUp" data-delay="700ms">Registrar mi pase</a>
+                                <h2 data-animation="fadeInUp" data-delay="300ms"><span><strong>Thursday <label style="color: red">07</label></strong></span><strong><br>November 2019</h2></strong>
+                                <h4 data-animation="fadeInUp" data-delay="500ms"><strong>From 10:00 am: <span>Expo Industria Tecate </span></strong></h4>
+                                <a href=".intro" class="btn pixel-btn mt-50 continue link-scroll" data-animation="fadeInUp" data-delay="700ms">Register my pass</a>
                             <script>
                                 $('.link-scroll').bind('click', function (e) {
                                     var anchor = $(this);
@@ -132,7 +132,7 @@
                             <div class="welcome-text">
                                 <h2 data-animation="fadeInUp" data-delay="300ms"><span><strong>SEDE:</strong></span><br><strong>MMS de México</strong></h2>
                                 <h4 data-animation="fadeInUp" data-delay="500ms"><strong>BLVD. ENCINO 30012 A-1 PARQUE INDUSTRIAL,</strong> <span><strong>TECATE B.C. CP 21430</strong></span></h4>
-                                <a href=".intro" class="btn pixel-btn mt-50 link-scroll" data-animation="fadeInUp" data-delay="700ms">Registrar mi pase</a>
+                                <a href=".intro" class="btn pixel-btn mt-50 link-scroll" data-animation="fadeInUp" data-delay="700ms">Register my pass</a>
                                 <script>
                                 $('.link-scroll').bind('click', function (e) {
                                     var anchor = $(this);
@@ -171,7 +171,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
 
             }
         </style>
-        <div id="title" align="center" >Dentro de...</div>
+        <div id="title" align="center" >In...</div>
         <div id="countdown" align="center"></div>
         <script>
         var end = new Date('11/07/2019 10:00 AM');
@@ -197,10 +197,10 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 var minutes = Math.floor((distance % _hour) / _minute);
                 var seconds = Math.floor((distance % _minute) / _second);
 
-                document.getElementById('countdown').innerHTML = days + ' dias, ';
-                document.getElementById('countdown').innerHTML += hours + ' horas, ';
-                document.getElementById('countdown').innerHTML += minutes + ' minutos y ';
-                document.getElementById('countdown').innerHTML += seconds + ' segundos';
+                document.getElementById('countdown').innerHTML = days + ' days, ';
+                document.getElementById('countdown').innerHTML += hours + ' hours, ';
+                document.getElementById('countdown').innerHTML += minutes + ' minutes and ';
+                document.getElementById('countdown').innerHTML += seconds + ' seconds';
             }
 
             timer = setInterval(showRemaining, 1000);
@@ -238,7 +238,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
     }
 }
          </style>
-<iframe class="youtubevid" width="1120" height="630" src="https://www.youtube.com/embed/ZKfscMRpYnQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="youtubevid" width="1120" height="630" src="https://www.youtube.com/embed/g5zLHcyt_n4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
      </div>
     <!-- ##### Top Catagory Area End ##### -->
@@ -263,7 +263,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
         <!-- Portfolio Menu -->
         <div class="pixel-projects-menu wow fadeInUp" data-wow-delay="200ms">
             <div class="text-center portfolio-menu">
-                <button class="btn active" data-filter="*">Patrocinadores</button>
+                <button class="btn active" data-filter="*">Sponsors</button>
                 <!-- Opciones adicionales
                 <button class="btn" data-filter=".visual">Visual</button>
                 <button class="btn" data-filter=".add">Advertising</button>
@@ -280,7 +280,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/5.png' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Visualizar</h4>
+                        <h4>visualize</h4>
                     </div>
                 </div>
             </div>
@@ -291,7 +291,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/6.png' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Visualizar</h4>
+                        <h4>visualize</h4>
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 <div class="hover-content text-center d-flex align-items-center justify-content-center">
                     <div class="hover-text">
                         <a href="{% static 'evento/img/bg-img/7.png' %}" class="zoom-img"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <h4>Visualizar</h4>
+                        <h4>visualize</h4>
                     </div>
                 </div>
             </div>
@@ -318,7 +318,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 <div class="col-12">
                     <!-- Section Heading -->
                     <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
-                        <h2>Registra hoy tu pase de entrada</h2>
+                        <h2>Register your entry pass today</h2>
                         <img src="{% static 'evento/img/core-img/x.png' %}" width="100" alt="">
                     </div>
                 </div>
@@ -348,7 +348,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                         <form method="POST">
                             {% csrf_token %}
                             {{ form }}
-                            <button type="submit" class="btn pixel-btn wow fadeInUp" data-wow-delay="900ms">Registrar mi pase</button>
+                            <button type="submit" class="btn pixel-btn wow fadeInUp" data-wow-delay="900ms">Register my pass</button>
                         </form>
 
 
@@ -379,7 +379,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title">Dirección</h5>
+                                <h5 class="widget-title">Address</h5>
                                 <p>CALLE SAN FCO EUSEBIO KINO, Misión de Mulegé S/N, <br>
                                     El Descanso, 21478 Tecate, Baja California
 
@@ -390,7 +390,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                         <!-- Single Footer Widget -->
                         <div class="col-sm-4">
                             <div class="single-footer-widget mb-100">
-                                <h5 class="widget-title contacto" id="contact">Contacto</h5>
+                                <h5 class="widget-title contacto" id="contact">Contact</h5>
                                 <p><i class="fa fa-phone"></i> <br> (665) 665-07-56</p>
                                 <p><i class="fa fa-phone"></i> <br> (665) 665-07-57</p>
                                 <p><i class="fa fa-phone"></i> <br> (665) 665-07-58</p>
@@ -421,7 +421,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                         <div class="copywrite-content">
                             <!-- Copywrite Text -->
                             <p class="copywrite-text"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Este template esta editado <i class="fa fa-heart-o" aria-hidden="true"> </i> por <a href="https://colorlib.com" target="_blank">Jesus</a>
+                                This template is edited. <i class="fa fa-heart-o" aria-hidden="true"> </i> by <a href="https://colorlib.com" target="_blank">Jesus</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
                         </div>
