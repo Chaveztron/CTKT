@@ -62,7 +62,7 @@
                                     <li><a href="{% url 'index' %}">Inicio</a></li>
                                     <li><a href="{% url 'index' %}#contact" >Contacto</a></li>
 
-                                    <li><a href="{% url 'prog' %}">Programa</a></li>
+                                    <li><a href="{% url 'prog' %}">Información</a></li>
                                 </ul>
 
 
@@ -91,7 +91,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <h2>Programa </h2>
+                        <h2>información</h2>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
 
         {% for autor in Autores %}
         <div class="single-service-cata bg-img d-flex align-items-center justify-content-center jarallax" style="background-image: url({{ autor.fotografia.url }});">
-            <a href="#">{{ autor.nombre_expositor }}</a>
+            <!-- <a href="#">{{ autor.nombre_expositor }}</a> -->
         </div>
 
         {% endfor %}
@@ -151,7 +151,7 @@
                         <img src="{{ exp.logo.url }}" alt="">
                         <h5>{{ exp.titulo_exposicion }}</h5>
                         <p>{{ exp.resumen }}</p>
-                        <a href="#" class="btn">{{ exp.nombre_expositor }}</a>
+                        <a href="http://{{ exp.nombre_expositor }}" class="btn">{{ exp.nombre_expositor }}</a>
                     </div>
                 </div>
 

@@ -1205,7 +1205,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
     z-index: -1;
     top: 0;
     left: 0;
-    background-color: rgba(119, 153, 166, 0.75); }
+     }
   .breadcrumb-area .breadcrumb-content {
     text-align: center; }
     .breadcrumb-area .breadcrumb-content h2 {
@@ -1285,8 +1285,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
     z-index: -1;
     position: absolute;
     top: 0;
-    left: 0;
-    background-color: rgba(104, 139, 254, 0.5); }
+    left: 0; }
   .single-service-cata:hover::after {
     background-color: rgba(255, 87, 51, 0.9); }
   .single-service-cata a {
