@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85248108-2f12-459e-b28e-e108106e7874" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/static/evento/img/bg-img/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/static/evento/img/bg-img/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/static/evento/img/bg-img/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/static/evento/img/bg-img/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/static/evento/img/core-img/logo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/static/evento/img/core-img/logo2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/en.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/en.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="85248108-2f12-459e-b28e-e108106e7874" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +86,7 @@
       <workItem from="1564707792614" duration="8545000" />
       <workItem from="1565418608015" duration="15578000" />
       <workItem from="1566431142527" duration="9377000" />
-      <workItem from="1567059172001" duration="1375000" />
+      <workItem from="1567059172001" duration="1617000" />
     </task>
     <servers />
   </component>
