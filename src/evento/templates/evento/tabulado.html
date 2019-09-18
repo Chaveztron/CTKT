@@ -114,8 +114,8 @@ $(document).ready(function(){
                         <tr style="background: #efa2a9">
                         {% endif %}
 
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.nombre }} {{ user.appellidoP }} {{ user.appellidoM }}</td>
+                        <td><a href="/pase/{{ user.id }}/{{ user.nombre }}/">{{ user.id }}</a></td>
+                        <td>{{ user.nombre }} {{ user.appellidoP }}</td>
                         <td>{{ user.puesto }}</td>
                         <td>{{ user.empresa }}</td>
                         <td>{{ user.email }}</td>
@@ -129,7 +129,7 @@ $(document).ready(function(){
                         </td>
                         <td>{{ user.participaciones }}</td>
                         <td>{{ user.horaRegistro }}</td>
-                        <td>{{ user.asistencia }}</td>
+                        <td><a href="/verificado/{{ user.id }}/{{ user.nombre }}/">{{ user.asistencia }}</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

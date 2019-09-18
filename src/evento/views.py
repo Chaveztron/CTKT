@@ -106,8 +106,8 @@ def verificar(request, id, nombre):
     nombreUser = nombreUser.replace(" ", "%20")
     link = "BEGIN:VCARD\n" \
            "VERSION:3.0\n" \
-           "N:"+str(usuario.nombre)+";"+str(usuario.appellidoP)+" "+str(usuario.appellidoM)+";;Mr.;\n" \
-           "FN:"+str(usuario.nombre)+" "+str(usuario.appellidoP)+" "+str(usuario.appellidoM)+"\n" \
+           "N:"+str(usuario.nombre)+";"+str(usuario.appellidoP)+";;Mr.;\n" \
+           "FN:"+str(usuario.nombre)+" "+str(usuario.appellidoP)+"\n" \
            "ORG:"+str(usuario.empresa)+".\n" \
            "TITLE:"+str(usuario.puesto)+"\n" \
             "TEL;TYPE=WORK,VOICE:" + str(usuario.telefono) + "\n" \
@@ -117,7 +117,6 @@ def verificar(request, id, nombre):
     context = {
         "nombre": usuario.nombre.upper(),
         "apellidoP": usuario.appellidoP.upper(),
-        'apellidoM': usuario.appellidoM.upper(),
         "puesto": usuario.puesto,
         "empresa": usuario.empresa.upper(),
         "email": usuario.email,
@@ -172,7 +171,7 @@ class ReporteUsuarioExcel(TemplateView):
 
         for usuario in usuarios:
             ws.cell(row = cont, column = 1).value = usuario.id
-            ws.cell(row = cont, column = 2).value = str(usuario.nombre)+" "+ str(usuario.appellidoP)+" "+ str(usuario.appellidoM)
+            ws.cell(row = cont, column = 2).value = str(usuario.nombre)+" "+ str(usuario.appellidoP)
             ws.cell(row = cont, column = 3).value = usuario.puesto
             ws.cell(row = cont, column = 4).value = usuario.empresa
             ws.cell(row = cont, column = 5).value = usuario.email
@@ -204,7 +203,7 @@ def GeneratePdf(request,id, nombre):
     nombreUser = nombreUser.replace(" ","%20")
     link = "http://"+dominio+"/verificado/"+str(usuario.id)+"/"+nombreUser+"/"  ##cambiar dominio
     template = get_template('pdf/invoice.html')
-    name = str(usuario.nombre)+" "+str(usuario.appellidoP)+" "+str(usuario.appellidoM)
+    name = str(usuario.nombre)+" "+str(usuario.appellidoP)
     context = {
         "nombre": name,
         "puesto": usuario.puesto,

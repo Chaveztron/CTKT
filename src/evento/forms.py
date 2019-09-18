@@ -14,14 +14,7 @@ class RegistrerForm(forms.ModelForm):
     appellidoP = forms.CharField(required=True, label='',
                              widget=forms.TextInput(
                                  attrs={
-                                     "placeholder": "Apellido paterno",
-                                     'class': "form-control wow fadeInUp",
-                                     'data-wow-delay': "100ms"
-                                 }))
-    appellidoM = forms.CharField(required=True, label='',
-                             widget=forms.TextInput(
-                                 attrs={
-                                     "placeholder": "Apellido materno",
+                                     "placeholder": "Apellidos",
                                      'class': "form-control wow fadeInUp",
                                      'data-wow-delay': "100ms"
                                  }))
@@ -75,7 +68,7 @@ class RegistrerForm(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ('nombre','appellidoP','appellidoM', 'puesto', 'empresa', 'telefono','intereses','participaciones', 'email',)
+        fields = ('nombre','appellidoP', 'puesto', 'empresa', 'telefono','intereses','participaciones', 'email',)
 
 class FormEn(forms.ModelForm):
     nombre = forms.CharField(required=True, label='',
@@ -89,13 +82,6 @@ class FormEn(forms.ModelForm):
                              widget=forms.TextInput(
                                  attrs={
                                      "placeholder": "Last name",
-                                     'class': "form-control wow fadeInUp",
-                                     'data-wow-delay': "100ms"
-                                 }))
-    appellidoM = forms.CharField(required=True, label='',
-                             widget=forms.TextInput(
-                                 attrs={
-                                     "placeholder": "Mother's last name",
                                      'class': "form-control wow fadeInUp",
                                      'data-wow-delay': "100ms"
                                  }))
@@ -149,4 +135,4 @@ class FormEn(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ('nombre','appellidoP','appellidoM', 'puesto', 'empresa', 'telefono','intereses','participaciones', 'email',)
+        fields = ('nombre','appellidoP', 'puesto', 'empresa', 'telefono','intereses','participaciones', 'email',)

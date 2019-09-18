@@ -15,7 +15,6 @@ class Tipo_participacion(models.Model):
 class Usuario(models.Model):
     nombre = models.CharField(max_length=60)
     appellidoP = models.CharField(max_length=60)
-    appellidoM = models.CharField(max_length=60)
     puesto = models.CharField(max_length=60)
     empresa = models.CharField(max_length=60)
     email = models.EmailField(max_length=70)
