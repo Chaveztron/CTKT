@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85248108-2f12-459e-b28e-e108106e7874" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/evento/migrations/0019_remove_usuario_appellidom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/Heineken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/Media.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-09-18_at_3.27.56_PM.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-09-18_at_3.29.46_PM.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-09-18_at_3.51.42_PM.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/global-logo-CoastAluminum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/logo-2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/canacintra/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/canacintra/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/en.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/en.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/programa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/programa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/tabulado.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/tabulado.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +101,7 @@
       <workItem from="1566431142527" duration="9377000" />
       <workItem from="1567059172001" duration="4601000" />
       <workItem from="1568790297430" duration="5801000" />
+      <workItem from="1569992008723" duration="192000" />
     </task>
     <servers />
   </component>
