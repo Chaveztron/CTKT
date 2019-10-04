@@ -794,7 +794,7 @@ background: linear-gradient(to left, #292E49, #789ba8);
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 87, 51, 0.9);
+    background-color: rgb(0,0,0,0.3);
     opacity: 0;
     visibility: hidden;
     -webkit-transition-duration: 500ms;
@@ -1287,7 +1287,7 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
     top: 0;
     left: 0; }
   .single-service-cata:hover::after {
-    background-color: rgba(255, 87, 51, 0.9); }
+    background-color: rgba(0, 0, 0, 0.3); }
   .single-service-cata a {
     font-size: 48px;
     color: #ffffff; }

@@ -344,8 +344,13 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
                 <div class="col-12 col-lg-8">
                     <!-- Contact Form -->
                     <div class="contact-form-area text-center">
-
-
+                     <!--
+                        <style>
+                            option:nth-child(1){
+                                display: none;
+                            }
+                        </style>
+                     -->
                         <form method="POST">
                             {% csrf_token %}
                             {{ form }}
