@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85248108-2f12-459e-b28e-e108106e7874" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/evento/migrations/0020_comprador.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/evento/migrations/0021_video.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/autores/ProgramaPreliminar_ExpoIndustria.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/autores/RecorridoB2B_ExpoIndustria.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/media/logos/9a6bcbef-cb95-424f-84ad-7f0f51bc45e2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evento/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evento/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/programa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/programa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evento/templates/evento/tabulado.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/evento/tabulado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/evento/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/media/autores/16252072_806581109479698_4864003211826429297_o.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/media/autores/Captura_de_pantalla_de_2019-08-29_01-39-36.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +105,7 @@
       <workItem from="1567059172001" duration="4601000" />
       <workItem from="1568790297430" duration="5801000" />
       <workItem from="1569992008723" duration="2249000" />
+      <workItem from="1570247030806" duration="15246000" />
     </task>
     <servers />
   </component>

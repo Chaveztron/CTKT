@@ -36,6 +36,21 @@ class Publicaciones(models.Model):
     def __str__(self):
         return self.titulo_exposicion
 
+class Comprador(models.Model):
+    pagina_comprador = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='logos')
+    comprador_nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=900)
+
+    def __str__(self):
+        return self.comprador_nombre
+
+class Video(models.Model):
+    titulo = models.CharField(max_length=100)
+    video = models.CharField(max_length=100)
+    def __str__(self):
+        return self.titulo
+
 class AutoresRelevantes(models.Model):
     nombre_expositor = models.CharField(max_length=100)
     fotografia = models.ImageField(upload_to='autores')

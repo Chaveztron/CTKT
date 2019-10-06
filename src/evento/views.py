@@ -17,6 +17,8 @@ from django.views.generic import TemplateView
 
 from .models import *
 
+from django.db.models import Count
+
 class HomeView(TemplateView):
     template_name = "home.html"
 
@@ -27,10 +29,14 @@ def login(request):
     return render(request, 'evento/login.html')
 
 def programa(request):
+    compradores = Comprador.objects.all()
+    videos = Video.objects.all()
     exposiciones = Publicaciones.objects.all()
     autores_relevantes = AutoresRelevantes.objects.all()
     texto_adicional = TextoAdicional.objects.all()
     context = {
+        'videos': videos,
+        'compradores': compradores,
         'Exposiciones': exposiciones,
         'Autores': autores_relevantes,
         'Texto': texto_adicional,
@@ -39,6 +45,9 @@ def programa(request):
 
 # Create your views here.
 def index(request):
+    compradores = len(Usuario.objects.extra(where=["participaciones_id = 1"]))
+    proveedores = len(Usuario.objects.extra(where=["participaciones_id = 2"]))
+    visitantes = len(Usuario.objects.extra(where=["participaciones_id = 3"]))
     form = RegistrerForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
@@ -51,7 +60,10 @@ def index(request):
     else:
         form = RegistrerForm()
     context = {
-        'form':form
+        'form':form,
+        'c': compradores,
+        'p': proveedores,
+        'v': visitantes,
     }
     return render(request, 'evento/index.html', context)
 
@@ -142,8 +154,18 @@ def verificar(request, id, nombre):
 @login_required
 def registrados(request):
     registrados = Usuario.objects.order_by('-horaRegistro')
+
+    compradores = len(Usuario.objects.extra(where=["participaciones_id = 1"]))
+    proveedores = len(Usuario.objects.extra(where=["participaciones_id = 2"]))
+    visitantes = len(Usuario.objects.extra(where=["participaciones_id = 3"]))
+
+
+
     context = {
         'usuarios': registrados,
+        'c': compradores,
+        'p': proveedores,
+        'v': visitantes,
     }
     return render(request, 'evento/tabulado.html', context)
 

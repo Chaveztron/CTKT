@@ -150,33 +150,37 @@
             </div>
 
             <div class="row">
+
+                {% for vid in videos %}
                 <div class="col-sm">
                     <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <h2>MMS de Mexico</h2>
-                    <iframe width="540" height="400" src="https://www.youtube.com/embed/BRQbB06NHTQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <h2>{{ vid.titulo }}</h2>
+                    <iframe width="540" height="400" src="https://www.youtube.com/embed/{{ vid.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="col-sm">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <h2>Santuario Diegueño</h2>
-                        <iframe width="540" height="400" src="https://www.youtube.com/embed/rnlW22olIEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>
-
-                    </div>
-                </div>
             </div>
          </div>
 <!-- VIDEOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS-->
 
+            <div class="pixel-projects-menu wow fadeInUp" data-wow-delay="200ms">
+            <div class="text-center portfolio-menu">
+                <button class="btn active" data-filter="*">Todas las empresas</button>
+                <button class="btn" data-filter=".add">Compradoras</button>
+                <button class="btn" data-filter=".prov">Proveedoras</button>
+            </div>
+        </div>
+
     <!-- ##### Service Area Start ##### -->
     <section class="pixel-service-area">
         <div class="container">
-            <div class="row">
+            <div class="row pixel-portfolio">
                 <!-- Exposiciones                   -->
 
                 {% for exp in Exposiciones %}
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="single-service-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single_gallery_item prov col-12 col-md-6 col-lg-3" data-wow-delay="0.2s">
+                    <div class="single-service-area visual wow text-center mb-100  fadeInUp" data-wow-delay="100ms">
                         <img src="{{ exp.logo.url }}" alt="">
                         <h5>{{ exp.titulo_exposicion }}</h5>
                         <p>{{ exp.resumen }}</p>
@@ -186,6 +190,18 @@
 
                 {% endfor %}
                 <!-- Exposiciones                   -->
+                {% for comp in compradores %}
+                <div class="single_gallery_item add col-12 col-md-6 col-lg-3" data-wow-delay="0.2s">
+                    <div class="single-service-area visual wow text-center mb-100  fadeInUp" data-wow-delay="100ms">
+                        <img src="{{ comp.logo.url }}" alt="">
+                        <h5>{{ comp.comprador_nombre }}</h5>
+                        <p>{{ comp.descripcion }}</p>
+                        <a href="http://{{ comp.pagina_comprador }}" class="btn">{{ comp.pagina_comprador }}</a>
+                    </div>
+                </div>
+
+                {% endfor %}
+
             </div>
 
 

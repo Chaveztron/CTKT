@@ -244,11 +244,59 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
      </div>
     <!-- ##### Top Catagory Area End ##### -->
 
-    <!-- ##### Newsletter Area Start ###### -->
-    <!-- ##### Newsletter Area End ###### -->
+    <!-- ##### Char Area Start #####-->
+    <script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <script>
+window.chartColors = {
+	color1: '#C0392B',
+	color2: '#0B0096',
+	color3: '#eeeeee',
+};
+
+		var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [
+						{{ c }},
+						{{ p }},
+						{{ v }},
+					],
+					backgroundColor: [
+						window.chartColors.color1,
+						window.chartColors.color2,
+						window.chartColors.color3,
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+				    'Compradores',
+					'Provedores',
+                    'Visitantes',
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+		};
+
+	</script>
+    <div class="row d-flex justify-content-center">
+    <div id="canvas-holder" style="width:40%;">
+        <h3>Compradores, proveedores y visitantes registrados actualmente...</h3>>
+		<canvas id="chart-area"></canvas>
+	</div>
+    </div>
+
+    <!-- ##### Char Area End ###### -->
 
     <!-- ##### Portfolio Area Start ###### -->
-    <div class="pixel-portfolio-area section-padding-100-0">
+    <div class="pixel-portfolio-area section-padding-50-0">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -311,6 +359,8 @@ background: linear-gradient(to left, #292E49, #789ba8); /* W3C, IE 10+/ Edge, Fi
         </div>
     </div>
     <!-- ##### Portfolio Area End ###### -->
+
+
 
     <!-- ##### Contact Area Start #####-->
     <section class="contact-area section-padding-100 intro">
