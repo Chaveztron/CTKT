@@ -62,7 +62,7 @@ class RegistrerForm(forms.ModelForm):
 
                                                }), required=True)
     """
-    participaciones = forms.ModelChoiceField(label='Interesado en participar como: ', queryset=Tipo_participacion.objects.all(), initial=0)
+    participaciones = forms.ModelChoiceField(label='Interesado en participar como: ', queryset=Tipo_participacion.objects.all(), initial=2)
 
 
 
@@ -129,7 +129,7 @@ class FormEn(forms.ModelForm):
 
                                                }), required=True)
     """
-    participaciones = forms.ModelChoiceField(label='Interested in participating as: ', queryset=Tipo_participacion.objects.all(), initial=0)
+    participaciones = forms.ModelChoiceField(label='Interested in participating as: ', queryset=Tipo_participacion.objects.all(), initial=2)
 
 
 
