@@ -3,29 +3,32 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title>sticker</title>
-	<meta name="generator" content="LibreOffice 6.2.5.2 (Linux)"/>
-	<meta name="created" content="2019-07-26T13:01:57.334629476"/>
-	<meta name="changed" content="2019-07-26T13:10:09.670712493"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.2.7.1 (Linux)"/>
+	<meta name="created" content="2019-11-05T19:42:06.466751877"/>
+	<meta name="changed" content="2019-11-05T20:02:21.224422004"/>
 	<style type="text/css">
-		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		@page {
+			size: 10.02cm 5.9cm
+		}
+		@media print{@page {size: landscape}}
+
 		p { margin-bottom: 0.25cm; line-height: 115%; background: transparent }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		a:visited { color: #800000; so-language: zxx; text-decoration: underline }
 	</style>
+
 </head>
-<body lang="es-MX" link="#000080" vlink="#800000" dir="ltr"><p align="center" style="margin-bottom: 0cm; line-height: 100%">
-<font face="Arial, sans-serif"><font size="6" style="font-size: 26pt">{{ nombre }}</font></font></p>
-<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font face="Arial, sans-serif"><font size="6" style="font-size: 26pt">{{ apellidoP }}</font></font></p>
-<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font face="Arial, sans-serif"><font size="6" style="font-size: 26pt">{{ apellidoM }}</font></font></p>
-<p style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p align="center" style="margin-bottom: 0cm; line-height: 100%"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">{{ empresa }}</font></font></p>
-<p align="center" style="margin-bottom: 0cm; line-height: 100%"><br/>
-
-</p>
-<p align="center" style="margin-bottom: 0cm; line-height: 100%">
-    {% qr_from_text link size="5" image_format="png" error_correction="L" %}
+<body lang="es-MX" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0cm; line-height: 100%">
 <br/>
+
+</p>
+<p align="center" style="margin-top: -7cm; margin-bottom:0cm; font-size: 19px">{{ name }}</p>
+
+<p align="center" style="margin-top: -3cm; margin-bottom:-0.1cm; line-height: 100%; font-size: 15px">{{ empresa|truncatechars:32 }}</p>
+
+<p align="center" style="line-height: 100%; margin-top: -4cm;">
+    {% qr_from_text link size="2" image_format="png" error_correction="L" %}
 
 </p>
 </body>

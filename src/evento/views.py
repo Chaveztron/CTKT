@@ -109,7 +109,7 @@ def verificar(request, id, nombre):
     user = Usuario.objects.get(id=id, nombre=nombre)
     user.asistencia = True
     user.save()
-
+    name = str(user.nombre) + " " + str(user.appellidoP)
     persona = Saludo(persona=str(user.nombre))
     persona.save()
 
@@ -127,6 +127,7 @@ def verificar(request, id, nombre):
            "END:VCARD\n"
     template = get_template('pdf/invoice.html')
     context = {
+        "name":name,
         "nombre": usuario.nombre.upper(),
         "apellidoP": usuario.appellidoP.upper(),
         "puesto": usuario.puesto,
