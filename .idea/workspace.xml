@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85248108-2f12-459e-b28e-e108106e7874" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/media/autores/ProgramaPreliminar_ExpoIndustria_m43YOe7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/771ec701-7a74-4e50-93a6-e094c264a518.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/Captura_de_pantalla_de_2019-11-04_17-40-43.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-14_at_11.26.15_AM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-14_at_11.35.37_AM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-14_at_11.40.23_AM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-21_at_1.58.26_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-23_at_12.03.47_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-23_at_12.04.11_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-23_at_4.12.17_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-25_at_11.54.44_AM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-10-31_at_3.54.33_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/WhatsApp_Image_2019-11-01_at_2.22.21_PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/b7aea8a5-0ae0-4b3d-97a5-18a449652970.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/logo_web_grande.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/media/logos/smrt.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/evento/templates/pdf/sticker.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/templates/pdf/sticker.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/evento/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/evento/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,7 +96,7 @@
       <workItem from="1570247030806" duration="15246000" />
       <workItem from="1570399858822" duration="1700000" />
       <workItem from="1570915182569" duration="488000" />
-      <workItem from="1573011652624" duration="7535000" />
+      <workItem from="1573011652624" duration="8346000" />
     </task>
     <servers />
   </component>

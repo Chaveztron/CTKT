@@ -110,8 +110,8 @@ def verificar(request, id, nombre):
     user.asistencia = True
     user.save()
     name = str(user.nombre) + " " + str(user.appellidoP)
-    persona = Saludo(persona=str(user.nombre))
-    persona.save()
+    '''persona = Saludo(persona=str(user.nombre))
+    persona.save()'''
 
     usuario = Usuario.objects.get(id=id, nombre=nombre)
     nombreUser = usuario.nombre
